@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+    title: Or Damari Calculator
+    version: 1.0.0
+servers:
+    - url: http://localhost:8080
+      description: Local server
+paths:
+    /calculator:
+        post:
+            tags:
+                - Calculator
+            description:
+                "perform a specified arithmetic operation (such as addition, subtraction,\
+                \ multiplication, or division) on two numerical values and return the result"
+            operationId: calculatorPOST
+            parameters:
+                - name: arithmeticOperation
+                  in: header
+                  description: narithmetic operation to be performed.
+                  required: true
+                  style: simple
+                  explode: false
+                  schema:
+                      type: string
+                      enum:
+                          - add
+                          - subtract
+                          - multiply
+                          - divide
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CalculatorNumbers'
+            responses:
+                '200':
+                    description: Result of the calculation
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CalculatorSuccessResult'
+                '401':
+                    description: Unauthorized
+            x-swagger-router-controller: Calculator
+    /auth:
+        post:
+            tags:
+                - Auth
+            description: add JWT token to yours cookie to perform authentication
+            operationId: authPOST
+            responses:
+                '200':
+                    description: Perform authentication
+            x-swagger-router-controller: Auth
+components:
+    schemas:
+        CalculatorNumbers:
+            type: object
+            properties:
+                firstNumber:
+                    type: number
+                    format: int32
+                    example: 5
+                secondNumber:
+                    type: number
+                    format: int32
+                    example: 10
+        CalculatorSuccessResult:
+            type: object
+            properties:
+                result:
+                    type: number
+                    format: int32
+                    example: 15
+            example:
+                result: 15

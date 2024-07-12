@@ -1,4 +1,4 @@
-const { checkToken } = require('../service/JWTService')
+const { checkToken } = require('../services/JWTService')
 
 exports.requireAuth = function (req, res, next) {
     try {

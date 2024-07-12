@@ -1,6 +1,6 @@
 'use strict'
 
-const Auth = require('../service/AuthService')
+const Auth = require('../services/AuthService')
 
 module.exports.authPOST = function authPOST(req, res, next) {
     Auth.authPOST(res)

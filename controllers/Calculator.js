@@ -1,7 +1,7 @@
 'use strict'
 
 const utils = require('../utils/writer.js')
-const Calculator = require('../service/CalculatorService')
+const Calculator = require('../services/CalculatorService')
 const { requireAuth } = require('../middlewares/require-auth.middleware.js')
 
 function calculatorPOST(req, res, next, body) {

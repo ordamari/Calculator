@@ -1,5 +1,12 @@
 'use strict'
 
+/**
+ * perform arithmetic operations on two numbers
+ *
+ * body Object { firstNumber, secondNumber }
+ * arithmeticOperation String arithmetic operation to be performed (add, subtract, multiply, divide)
+ * returns Object { result }
+ **/
 exports.calculatorPOST = function (body, arithmeticOperation, callback) {
     const { firstNumber, secondNumber } = body
     switch (arithmeticOperation) {

@@ -1,5 +1,8 @@
 const { checkToken } = require('../services/JWTService')
 
+/**
+ * Check if the token is valid and call the next middleware
+ **/
 exports.requireAuth = function (req, res, next) {
     try {
         const token = req.cookies['Authorization']

@@ -1,6 +1,6 @@
 'use strict'
 
-const jwt = require('jsonwebtoken')
+const { createToken } = require('../service/JWTService')
 
 /**
  * add JWT token to yours cookie to perform authentication
@@ -8,9 +8,7 @@ const jwt = require('jsonwebtoken')
  * no response value expected for this operation
  **/
 exports.authPOST = function (res) {
-    const token = jwt.sign({ someData: 'data' }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN,
-    })
+    const token = createToken({ someData: 'data' })
     res.cookie('Authorization', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',

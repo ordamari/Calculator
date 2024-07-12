@@ -4,6 +4,7 @@ const path = require('path')
 const http = require('http')
 const dotenv = require('dotenv')
 const oas3Tools = require('oas3-tools')
+const { errorHandler } = require('./middlewares/error-handler.middleware')
 const serverPort = 8080
 
 dotenv.config()
@@ -20,6 +21,7 @@ const expressAppConfig = oas3Tools.expressAppConfig(
     options
 )
 const app = expressAppConfig.getApp()
+app.use(errorHandler)
 
 // Initialize the Swagger middleware
 http.createServer(app).listen(serverPort, function () {

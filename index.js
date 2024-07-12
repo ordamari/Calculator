@@ -1,30 +1,10 @@
-'use strict'
-
-const path = require('path')
 const http = require('http')
-const dotenv = require('dotenv')
-const oas3Tools = require('oas3-tools')
-const { errorHandler } = require('./middlewares/error-handler.middleware')
+const app = require('./app')
 const serverPort = 8080
 
-dotenv.config()
+const server = http.createServer(app)
 
-// swaggerRouter configuration
-const options = {
-    routing: {
-        controllers: path.join(__dirname, './controllers'),
-    },
-}
-
-const expressAppConfig = oas3Tools.expressAppConfig(
-    path.join(__dirname, 'api/openapi.yaml'),
-    options
-)
-const app = expressAppConfig.getApp()
-app.use(errorHandler)
-
-// Initialize the Swagger middleware
-http.createServer(app).listen(serverPort, function () {
+server.listen(serverPort, function () {
     console.log(
         'Your server is listening on port %d (http://localhost:%d)',
         serverPort,
@@ -35,3 +15,5 @@ http.createServer(app).listen(serverPort, function () {
         serverPort
     )
 })
+
+module.exports = server

@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken')
-const { NotAuthorizedError } = require('../errors/not-authorized.error')
 
 exports.checkToken = function (token, next) {
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) throw new NotAuthorizedError()
+        if (err) throw new Error('Invalid token')
         next(user)
     })
 }

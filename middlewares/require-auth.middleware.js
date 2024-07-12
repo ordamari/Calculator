@@ -1,8 +1,11 @@
-const { NotAuthorizedError } = require('../errors/not-authorized.error')
 const { checkToken } = require('../service/JWTService')
 
 exports.requireAuth = function (req, res, next) {
-    const token = req.cookies['Authorization']
-    if (!token) throw new NotAuthorizedError()
-    checkToken(token, next)
+    try {
+        const token = req.cookies['Authorization']
+        if (!token) throw new Error('No token provided')
+        checkToken(token, next)
+    } catch (err) {
+        res.status(401).send({ message: err.message })
+    }
 }

@@ -1,7 +1,7 @@
 const httpMocks = require('node-mocks-http')
-const { authPOST } = require('../AuthService')
+const { authPOST } = require('../auth-service')
 
-jest.mock('../JWTService', () => ({
+jest.mock('../jwt-service', () => ({
     createToken: jest.fn(() => 'mockToken'),
 }))
 

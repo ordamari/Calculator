@@ -1,7 +1,7 @@
 const httpMocks = require('node-mocks-http')
 const { requireAuth } = require('../require-auth.middleware')
 
-jest.mock('../../services/JWTService', () => ({
+jest.mock('../../services/jwt-service', () => ({
     checkToken: jest.fn((token, next) => {
         if (token === 'invalid token') {
             throw new Error('Invalid token')

@@ -1,4 +1,4 @@
-const { calculatorPOST } = require('../CalculatorService')
+const { calculatorPOST } = require('../calculator-service')
 
 it('should add two numbers', () => {
     const body = {

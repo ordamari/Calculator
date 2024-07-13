@@ -1,4 +1,4 @@
-const { checkToken, createToken } = require('../JWTService')
+const { checkToken, createToken } = require('../jwt-service')
 
 jest.mock('jsonwebtoken', () => ({
     sign: jest.fn(() => 'mockReturnValue'),

@@ -1,6 +1,6 @@
 'use strict'
 
-const { createToken } = require('./JWTService')
+const { createToken } = require('./jwt-service')
 
 /**
  * add JWT token to yours cookie to perform authentication

@@ -1,4 +1,4 @@
-const { checkToken } = require('../services/JWTService')
+const { checkToken } = require('../services/jwt-service')
 
 /**
  * Check if the token is valid and call the next middleware

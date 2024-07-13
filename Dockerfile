@@ -7,13 +7,13 @@ COPY package-lock.json .
 
 RUN npm install --only=production --forzen-lockfile
 
-COPY api ./api
-COPY app.js .
-COPY index.js .
-COPY middlewares ./middlewares
-COPY utils ./utils
-COPY controllers ./controllers
-COPY services ./services
+COPY src/api ./src/api
+COPY src/app.js ./src
+COPY src/index.js ./src
+COPY src/middlewares ./src/middlewares
+COPY src/utils ./src/utils
+COPY src/controllers ./src/controllers
+COPY src/services ./src/services
 
 ENV JWT_SECRET=your_secret_key
 ENV JWT_EXPIRES_IN=1d

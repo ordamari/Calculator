@@ -10,61 +10,31 @@ Follow the instructions below to build and run the Docker container for this pro
 
 -   Docker: Ensure Docker is installed on your machine. You can download it from [Docker's official website](https://www.docker.com).
 
--   Clone the repository:
+## Easy Setup
+
+Running the Docker image prepared for easy setup:
+
+```
+docker run -d -p 8080:8080 ordamari/calculator:latest
+```
+
+Swagger will be served at: [http://localhost:8080/docs](http://localhost:8080/docs)
+
+## Running with Docker Compose
+
+Clone the repository:
 
 ```
 git clone https://github.com/ordamari/Calculator.git
 cd Calculator
 ```
 
-### Building and Running the Docker Image using Docker Compose
-
 Build and run the Docker container using Docker Compose:
 
 ```
-docker-compose up --build
+docker-compose up -d
 ```
 
-Verify the application is running by opening your browser and navigating to:
+Swagger will be served at: [http://localhost:8080/docs](http://localhost:8080/docs)
 
-```
-http://localhost:8080/docs
-```
-
-To stop the running container, use the following command:
-
-```
-docker-compose down
-```
-
-### Building and Running the Docker Image Manually
-
-Build the Docker image:
-
-```
-docker build -t calculator-app .
-```
-
-Run the Docker container:
-
-```
-docker run -d -p 8080:8080 --name calculator-container calculator-app
-```
-
-Verify the application is running by opening your browser and navigating to:
-
-```
-http://localhost:8080/docs
-```
-
-To stop the running container, use the following command:
-
-```
-docker stop calculator-container
-```
-
-To remove the container after stopping it, use:
-
-```
-docker rm calculator-container
-```
+![Swagger image](https://res.cloudinary.com/dif8yy3on/image/upload/v1720880509/nhznoy7xhmezakmf8bff.png)

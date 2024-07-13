@@ -15,9 +15,6 @@ COPY src/utils ./src/utils
 COPY src/controllers ./src/controllers
 COPY src/services ./src/services
 
-ENV JWT_SECRET=your_secret_key
-ENV JWT_EXPIRES_IN=1d
-
 RUN adduser -D nodeRunner
 USER nodeRunner
 

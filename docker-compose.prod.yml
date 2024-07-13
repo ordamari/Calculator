@@ -1,0 +1,5 @@
+services:
+    app:
+        image: ordamari/calculator:latest
+        ports:
+            - '8080:8080'
